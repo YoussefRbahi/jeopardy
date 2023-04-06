@@ -1,0 +1,25 @@
+{
+  "name": "Math",
+  "questions": [
+    {
+      "question": "What's one plus zero?",
+      "answer": "1"
+    },
+    {
+      "question": "What's one plus one?",
+      "answer": "2"
+    },
+    {
+      "question": "What's one plus two?",
+      "answer": "3"
+    },
+    {
+      "question": "What's one plus three?",
+      "answer": "4"
+    },
+    {
+      "question": "What's one plus four?",
+      "answer": "5"
+    }
+  ]
+}
