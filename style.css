@@ -1,32 +1,38 @@
 body {
-  background-color: antiquewhite;
+  background-color: black;
+  text-align: center;
+  font-size: auto;
 }
 
 #container {
   display: flex;
-  background-color: black;
-  width: 700px;
-  height: 500px;
+  background-color: transparent;
+  width: 1366px;
+  height: 728px;
   margin: 2em;
   gap: 1em;
 }
 .category {
   display: flex;
-  background-color: aliceblue;
+  background-color: transparent;
   width: 100%;
-  height: auto;
+  height: 100%;
   flex-direction: column;
   box-sizing: border-box;
   align-items: center;
   gap: 0.5em;
-  background-color: blue;
+  background-color: transparent;
 }
 .question {
-  background-color: white;
+  background-color: #041a99;
+  color: #e9b45e;
+  font-weight: bold;
+  text-shadow: 1px 1px black;
+  padding: 1em;
   display: flex;
   height: 100%;
   width: 100%;
-  box-sizing: content-box;
+  box-sizing: border-box;
   align-items: center;
   justify-content: center;
 }

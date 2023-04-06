@@ -1,25 +1,22 @@
 {
-  "name": "Math",
+  "category": "Literature",
   "questions": [
     {
-      "question": "What's one plus zero?",
-      "answer": "1"
+      "question": "Who wrote the novel 'To Kill a Mockingbird'?",
+      "answer": "Harper Lee"
     },
     {
-      "question": "What's one plus one?",
-      "answer": "2"
+      "question": "Who wrote the poem 'The Waste Land'?",
+      "answer": "T. S. Eliot"
     },
     {
-      "question": "What's one plus two?",
-      "answer": "3"
+      "question": "Who wrote the play 'Hamlet'?",
+      "answer": "William Shakespeare"
     },
     {
-      "question": "What's one plus three?",
-      "answer": "4"
+      "question": "Who wrote the novel 'Pride and Prejudice'?",
+      "answer": "Jane Austen"
     },
-    {
-      "question": "What's one plus four?",
-      "answer": "5"
-    }
+    { "question": "Who wrote the novel '1984'?", "answer": "George Orwell" }
   ]
 }

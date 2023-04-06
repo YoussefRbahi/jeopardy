@@ -1,25 +1,22 @@
 {
-  "name": "Math",
+  "category": "History",
   "questions": [
+    { "question": "In what year did World War II end?", "answer": "1945" },
     {
-      "question": "What's one plus zero?",
-      "answer": "1"
+      "question": "Who was the first President of the United States?",
+      "answer": "George Washington"
     },
     {
-      "question": "What's one plus one?",
-      "answer": "2"
+      "question": "Who led the Russian Revolution in 1917?",
+      "answer": "Vladimir Lenin"
     },
     {
-      "question": "What's one plus two?",
-      "answer": "3"
+      "question": "What is the name of the first artificial satellite launched into space?",
+      "answer": "Sputnik 1"
     },
     {
-      "question": "What's one plus three?",
-      "answer": "4"
-    },
-    {
-      "question": "What's one plus four?",
-      "answer": "5"
+      "question": "Who was the first human to orbit the Earth?",
+      "answer": "Yuri Gagarin"
     }
   ]
 }

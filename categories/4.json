@@ -1,25 +1,19 @@
 {
-  "name": "Math",
+  "category": "Science",
   "questions": [
+    { "question": "What is the chemical symbol for gold?", "answer": "Au" },
+    { "question": "What is the smallest unit of life?", "answer": "Cell" },
     {
-      "question": "What's one plus zero?",
-      "answer": "1"
+      "question": "What is the largest organ in the human body?",
+      "answer": "Skin"
     },
     {
-      "question": "What's one plus one?",
-      "answer": "2"
+      "question": "What is the scientific term for the study of insects?",
+      "answer": "Entomology"
     },
     {
-      "question": "What's one plus two?",
-      "answer": "3"
-    },
-    {
-      "question": "What's one plus three?",
-      "answer": "4"
-    },
-    {
-      "question": "What's one plus four?",
-      "answer": "5"
+      "question": "What is the name of the force that opposes motion?",
+      "answer": "Friction"
     }
   ]
 }

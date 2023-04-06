@@ -1,25 +1,19 @@
 {
-  "name": "Math",
+  "category": "Music",
   "questions": [
     {
-      "question": "What's one plus zero?",
-      "answer": "1"
+      "question": "Who wrote the opera 'The Marriage of Figaro'?",
+      "answer": "Wolfgang Amadeus Mozart"
     },
     {
-      "question": "What's one plus one?",
-      "answer": "2"
+      "question": "Who composed the ballet 'Swan Lake'?",
+      "answer": "Pyotr Ilyich Tchaikovsky"
     },
+    { "question": "Who wrote the rock opera 'Tommy'?", "answer": "The Who" },
+    { "question": "Who is the lead singer of the band U2?", "answer": "Bono" },
     {
-      "question": "What's one plus two?",
-      "answer": "3"
-    },
-    {
-      "question": "What's one plus three?",
-      "answer": "4"
-    },
-    {
-      "question": "What's one plus four?",
-      "answer": "5"
+      "question": "Who wrote the musical 'Les Misérables'?",
+      "answer": "Claude-Michel Schönberg and Alain Boublil"
     }
   ]
 }

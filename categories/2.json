@@ -1,25 +1,22 @@
 {
-  "name": "Math",
+  "category": "Geography",
   "questions": [
+    { "question": "What is the capital city of France?", "answer": "Paris" },
     {
-      "question": "What's one plus zero?",
-      "answer": "1"
+      "question": "What is the highest mountain in the world?",
+      "answer": "Mount Everest"
     },
     {
-      "question": "What's one plus one?",
-      "answer": "2"
+      "question": "What is the largest desert in the world?",
+      "answer": "Sahara"
     },
     {
-      "question": "What's one plus two?",
-      "answer": "3"
+      "question": "What is the world's largest island?",
+      "answer": "Greenland"
     },
     {
-      "question": "What's one plus three?",
-      "answer": "4"
-    },
-    {
-      "question": "What's one plus four?",
-      "answer": "5"
+      "question": "What is the deepest ocean in the world?",
+      "answer": "Pacific Ocean"
     }
   ]
 }
