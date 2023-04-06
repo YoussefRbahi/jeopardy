@@ -1,0 +1,32 @@
+body {
+  background-color: antiquewhite;
+}
+
+#container {
+  display: flex;
+  background-color: black;
+  width: 700px;
+  height: 500px;
+  margin: 2em;
+  gap: 1em;
+}
+.category {
+  display: flex;
+  background-color: aliceblue;
+  width: auto;
+  height: auto;
+  flex-direction: column;
+  box-sizing: border-box;
+  align-items: center;
+  gap: 0.5em;
+  background-color: blue;
+}
+.question {
+  background-color: white;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  box-sizing: content-box;
+  align-items: center;
+  justify-content: center;
+}
