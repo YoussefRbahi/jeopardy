@@ -13,7 +13,7 @@ body {
 .category {
   display: flex;
   background-color: aliceblue;
-  width: auto;
+  width: 100%;
   height: auto;
   flex-direction: column;
   box-sizing: border-box;
