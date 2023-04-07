@@ -1,16 +1,79 @@
-body {
-  background-color: black;
+* {
+  overflow: hidden;
+  text-overflow: ellipsis;
   text-align: center;
+  text-transform: uppercase;
+  pointer-events: all;
+}
+body {
+  position: fixed;
+  background-color: black;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  overflow-wrap: break-word;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 170vh;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+}
+
+#titles {
+  display: flex;
+  background-color: transparent;
+  width: 100%;
+  height: 15vh;
+  margin: 0;
+  padding-inline: 0.5em;
+  padding-top: 0.5em;
+  gap: 0.5em;
+  box-sizing: border-box;
+}
+
+.title {
+  background-color: #041a99;
+  color: white;
+  font-family: Swiss921, sans-serif;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 3vh;
+  margin: 0;
+  padding: 0;
+  text-shadow: 1px 1px black;
+  padding: 1em;
+  display: flex;
+  height: 100%;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+  flex: 1 1 0;
+  flex-basis: 0;
 }
 
 #container {
   display: flex;
   background-color: transparent;
-  width: 1366px;
-  height: 728px;
-  margin: 2em;
-  gap: 1em;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  gap: 0.5em;
+  padding-inline: 0.5em;
+  padding-bottom: 0.5em;
+  box-sizing: border-box;
 }
+
 .category {
   display: flex;
   background-color: transparent;
@@ -21,17 +84,45 @@ body {
   align-items: center;
   gap: 0.5em;
   background-color: transparent;
+  justify-content: center;
 }
+
 .question {
   background-color: #041a99;
   color: #e9b45e;
   font-weight: bold;
+  font-size: auto;
   text-shadow: 1px 1px black;
-  padding: 1em;
+  padding: 1vh;
   display: flex;
   height: 100%;
   width: 100%;
   box-sizing: border-box;
   align-items: center;
   justify-content: center;
+  z-index: 10;
+}
+.big {
+  transform: scale(1);
+  transition: 1s ease;
+  font-size: xxx-large;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 20%;
+  margin: 0.5em;
+  margin: auto;
+  width: 170vh;
+  height: 100vh;
+  box-sizing: border-box;
+  z-index: 999;
+}
+.disabled {
+  font-size: 0;
+  pointer-events: none;
+}
+
+.answer {
+  display: none;
 }

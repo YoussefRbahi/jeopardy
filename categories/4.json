@@ -1,5 +1,5 @@
 {
-  "category": "Science",
+  "name": "Science",
   "questions": [
     { "question": "What is the chemical symbol for gold?", "answer": "Au" },
     { "question": "What is the smallest unit of life?", "answer": "Cell" },

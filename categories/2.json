@@ -1,5 +1,5 @@
 {
-  "category": "Geography",
+  "name": "Geography",
   "questions": [
     { "question": "What is the capital city of France?", "answer": "Paris" },
     {
