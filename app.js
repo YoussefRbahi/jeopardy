@@ -73,14 +73,31 @@ window.addEventListener("DOMContentLoaded", function () {
 
   mainButton.addEventListener("click", function () {
     if (currentQna && currentQna.getAttribute("data-state") == 1) {
+      let timeLeft = 10;
+      qTimer.innerHTML = timeLeft;
+      const timerInterval = setInterval(function () {
+        timeLeft--;
+        qTimer.innerHTML = timeLeft;
+        if (timeLeft == 0) {
+          clearInterval(timerInterval);
+          currentQna.setAttribute("data-state", "2");
+          const answer = currentQna.querySelector(".answer");
+          currentQna.children[1].innerHTML = answer.innerHTML;
+        }
+      }, 1000);
+    } else if (currentQna && currentQna.getAttribute("data-state") == 2) {
       const answer = currentQna.querySelector(".answer");
       currentQna.children[1].innerHTML = answer.innerHTML;
-      currentQna.setAttribute("data-state", "2");
-    } else if (currentQna && currentQna.getAttribute("data-state") == 2) {
+      currentQna.setAttribute("data-state", "3");
+    } else if (currentQna && currentQna.getAttribute("data-state") == 3) {
+      const answer = currentQna.querySelector(".answer");
+      currentQna.children[1].innerHTML = answer.innerHTML;
+      currentQna.setAttribute("data-state", "4");
+    } else if (currentQna && currentQna.getAttribute("data-state") == 4) {
       // Disable the question when it's clicked a third time
       currentQna.classList.remove("big");
       currentQna.classList.add("disabled");
-      currentQna.setAttribute("data-state", "3");
+      currentQna.setAttribute("data-state", "5");
     }
   });
 });
