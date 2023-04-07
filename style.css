@@ -18,6 +18,10 @@ body {
   justify-content: center;
   user-select: none;
   overflow-wrap: break-word;
+  line-height: 1.1;
+
+  letter-spacing: 0.07em;
+  text-shadow: 0.2em 0.2em black;
 }
 
 main {
@@ -34,7 +38,8 @@ main {
   display: flex;
   background-color: transparent;
   width: 100%;
-  height: 15vh;
+  height: max-content;
+  min-height: 14vh;
   margin: 0;
   padding-inline: 0.5em;
   padding-top: 0.5em;
@@ -43,16 +48,14 @@ main {
 }
 
 .title {
-  background-color: #041a99;
+  background-color: #010a78;
   color: white;
-  font-family: Swiss921, sans-serif;
+  font-family: Haettenschweiler;
   text-transform: uppercase;
-  font-weight: bold;
-  font-size: 3vh;
+  font-size: 2.5em;
   margin: 0;
   padding: 0;
-  text-shadow: 1px 1px black;
-  padding: 1em;
+  padding: 0.2em;
   display: flex;
   height: 100%;
   box-sizing: border-box;
@@ -88,12 +91,13 @@ main {
 }
 
 .qna {
-  background-color: #041a99;
-  color: #e9b45e;
+  font-family: ITC Korinna;
+  background-color: #010a78;
+  color: #d7a04b;
   font-weight: bold;
   font-size: auto;
-  text-shadow: 1px 1px black;
-  padding: 1vh;
+  padding: 0vh;
+  margin: 0;
   display: flex;
   height: 100%;
   width: 100%;
@@ -103,9 +107,9 @@ main {
   z-index: 10;
 }
 .big {
-  transform: scale(1);
+  transform: scale();
   transition: 1s ease;
-  font-size: xxx-large;
+  font-size: 4em;
   position: absolute;
   top: 0;
   left: 0;
@@ -116,7 +120,7 @@ main {
   width: 170vh;
   height: 100vh;
   box-sizing: border-box;
-  z-index: 999;
+  z-index: 20;
 }
 .disabled {
   font-size: 0;
@@ -126,9 +130,69 @@ main {
 .answer {
   display: none;
 }
+
 .question {
   display: none;
 }
+.hidden {
+  height: 0;
+  width: 0;
+  display: none;
+}
+.timerButton {
+  display: flex;
+  position: fixed;
+  right: 0;
+  z-index: 30;
+}
 .amount {
-  display: all;
+  display: inline-flex;
+  font-size: 5em;
+  font-weight: 100;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 0.03em;
+
+  font-family: Haettenschweiler;
+
+  text-shadow: 0.1em 0.1em black;
+  gap: 0.05em;
+}
+
+.currency {
+  font-size: 0.8em;
+}
+#buzzers {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  left: 0;
+  z-index: 50;
+}
+#buttons {
+  display: flex;
+  flex-direction: column;
+  right: 0;
+  z-index: 50;
+}
+.buzzer {
+  font-size: auto;
+}
+#time {
+  background-color: aliceblue;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  text-shadow: 0 0;
+  right: 0;
+  z-index: 50;
+}
+.curtain {
+  display: flex;
+  width: auto;
+  justify-self: stretch;
+  flex-grow: auto;
+  background-color: black;
+  z-index: 49;
 }
