@@ -28,9 +28,31 @@ async function loadBoard() {
 
 // Load the board when the page is loaded
 loadBoard();
+document.addEventListener("keydown", function (event) {
+  if (event.code === "Space") {
+    mainButton.click();
+  }
+});
+document.addEventListener("keydown", function (event) {
+  if (event.code === "Numpad1") {
+    buzzer1.click();
+  }
+});
+document.addEventListener("keydown", function (event) {
+  if (event.code === "Numpad2") {
+    buzzer2.click();
+  }
+});
+document.addEventListener("keydown", function (event) {
+  if (event.code === "Numpad3") {
+    buzzer3.click();
+  }
+});
 
 // Add event listener for when a question is clicked
 window.addEventListener("DOMContentLoaded", function () {
+  let currentQna = null;
+
   container.addEventListener("click", function (event) {
     const qna = event.target.closest(".qna");
     if (qna) {
@@ -43,71 +65,28 @@ window.addEventListener("DOMContentLoaded", function () {
         qna.classList.add("big");
         qna.children[0].classList.toggle("question");
         qna.setAttribute("data-state", "1");
-      } else if (state == 1) {
-        // Show the answer when the question is clicked a second time
-        const answer = qna.querySelector(".answer");
-        qna.children[1].innerHTML = answer.innerHTML;
-        qna.setAttribute("data-state", "2");
-      } else {
-        // Disable the question when it's clicked a third time
-        qna.classList.remove("big");
-        qna.classList.add("disabled");
-        qna.setAttribute("data-state", "3");
+
+        currentQna = qna;
       }
     }
   });
+
+  mainButton.addEventListener("click", function () {
+    if (currentQna && currentQna.getAttribute("data-state") == 1) {
+      const answer = currentQna.querySelector(".answer");
+      currentQna.children[1].innerHTML = answer.innerHTML;
+      currentQna.setAttribute("data-state", "2");
+    } else if (currentQna && currentQna.getAttribute("data-state") == 2) {
+      // Disable the question when it's clicked a third time
+      currentQna.classList.remove("big");
+      currentQna.classList.add("disabled");
+      currentQna.setAttribute("data-state", "3");
+    }
+  });
 });
+
 const mainButton = document.getElementById("b1");
 const qTimer = document.getElementById("qTimer");
-
 const buzzer1 = document.getElementById("bz1");
-buzzer1.addEventListener("click", function () {
-  console.log("haha1");
-});
-
 const buzzer2 = document.getElementById("bz2");
-buzzer2.addEventListener("click", function () {
-  console.log("haha2");
-});
-
-const duration = 5;
-const interval = 1000;
-mainButton.addEventListener("click", function () {
-  // Only start the timer if the question has not been clicked yet
-  const qna = document.querySelector(".qna[data-state]");
-  if (qna) {
-    // Set the question state to 1
-    qna.setAttribute("data-state", "1");
-
-    // Start the timer
-    timerId = setInterval(() => {
-      remainingTime--;
-      const minutes = Math.floor(remainingTime / 60);
-      const seconds = remainingTime % 60;
-      const formattedTime = `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
-      qTimer.textContent = formattedTime;
-      if (remainingTime <= 0) {
-        clearInterval(timerId);
-        qTimer.textContent = "Start Timer";
-        timerFinished = true;
-      }
-    }, interval);
-  }
-});
-
-// let remainingTime = duration;
-// let timerId = null;
-// let timerFinished = false;
-// mainButton.addEventListener("click", function () {
-//   timerId = setInterval(() => {
-//     remainingTime--;
-//     const minutes = Math.floor(remainingTime / 60);
-//     const seconds = remainingTime % 60;
-//     const formattedTime = `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
-//     qTimer.textContent = formattedTime;
-//     if (remainingTime <= 0) {
-//       clearInterval(timerId);
-//       qTimer.textContent = "Start Timer";
-//     }
-//   }, interval);
-// });
+const buzzer3 = document.getElementById("bz3");

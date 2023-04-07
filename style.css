@@ -108,7 +108,7 @@ main {
 }
 .big {
   transform: scale();
-  transition: 1s ease;
+  transition: 1.5s ease;
   font-size: 4em;
   position: absolute;
   top: 0;
@@ -118,6 +118,7 @@ main {
   margin: 0.5em;
   margin: auto;
   width: 170vh;
+  max-width: 170vh;
   height: 100vh;
   box-sizing: border-box;
   z-index: 20;
