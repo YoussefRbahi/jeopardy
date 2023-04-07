@@ -6,16 +6,15 @@ const amounts = ["200", "400", "600", "800", "1000"];
 async function addCat(catFile) {
   const response = await fetch(`/categories/${catFile}`);
   const category = await response.json();
-  const questions = category.questions.map((q) => {
-    const id = `q${q.id}`;
-    return `<div class="question" id="${id}" data-state="0"><p class="que">${q.question}</p><p class="answer">${q.answer}</p></div>`;
+  const questions = category.questions.map((q, i) => {
+    const id = `q${q}`;
+    return `<div class="qna" data-state="0"><p class="amount">${amounts[i]}</p><p class="question">${q.question}</p><p class="answer">${q.answer}</p></div>`;
   });
   const oneCat = `<div class="category">${questions.join("")}</div>`;
   const oneTitle = `<div class="title">${category.name}</a>`;
   container.innerHTML += oneCat;
   titles.innerHTML += oneTitle;
 }
-
 async function loadBoard() {
   for (let i = 0; i < categories.length; i++) {
     await addCat(categories[i]);
@@ -26,20 +25,22 @@ loadBoard();
 
 window.addEventListener("DOMContentLoaded", function () {
   container.addEventListener("click", function (event) {
-    const question = event.target.closest(".question");
-    if (question) {
-      const state = parseInt(question.getAttribute("data-state"));
+    const qna = event.target.closest(".qna");
+    if (qna) {
+      const state = parseInt(qna.getAttribute("data-state"));
       if (state === 0) {
-        question.classList.add("big");
-        question.setAttribute("data-state", "1");
+        qna.children[1].classList.toggle("question");
+        qna.classList.add("big");
+        qna.children[0].classList.toggle("question");
+        qna.setAttribute("data-state", "1");
       } else if (state === 1) {
-        const answer = question.querySelector(".answer");
-        question.querySelector(".que").innerHTML = answer.innerHTML;
-        question.setAttribute("data-state", "2");
+        const answer = qna.querySelector(".answer");
+        qna.children[1].innerHTML = answer.innerHTML;
+        qna.setAttribute("data-state", "2");
       } else {
-        question.classList.remove("big");
-        question.classList.add("disabled");
-        question.setAttribute("data-state", "3");
+        qna.classList.remove("big");
+        qna.classList.add("disabled");
+        qna.setAttribute("data-state", "3");
       }
     }
   });

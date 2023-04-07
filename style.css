@@ -87,7 +87,7 @@ main {
   justify-content: center;
 }
 
-.question {
+.qna {
   background-color: #041a99;
   color: #e9b45e;
   font-weight: bold;
@@ -125,4 +125,10 @@ main {
 
 .answer {
   display: none;
+}
+.question {
+  display: none;
+}
+.amount {
+  display: all;
 }
