@@ -29,6 +29,7 @@ main {
   flex-direction: column;
   height: 100vh;
   width: 170vh;
+  min-width: 145vh;
   gap: 1rem;
   margin: 0;
   padding: 0;
@@ -39,7 +40,7 @@ main {
   background-color: transparent;
   width: 100%;
   height: max-content;
-  min-height: 14vh;
+  min-height: 19vh;
   margin: 0;
   padding-inline: 0.5em;
   padding-top: 0.5em;
@@ -52,10 +53,12 @@ main {
   color: white;
   font-family: Haettenschweiler;
   text-transform: uppercase;
-  font-size: 2.5em;
+  /* font-size: 6vh; */
+  font-size: 20px;
+  line-height: 1.4;
+  min-height: 40px;
   margin: 0;
-  padding: 0;
-  padding: 0.2em;
+  padding: 0 1vh;
   display: flex;
   height: 100%;
   box-sizing: border-box;
@@ -63,6 +66,8 @@ main {
   justify-content: center;
   flex: 1 1 0;
   flex-basis: 0;
+  word-break: break-word;
+  max-width: 100%;
 }
 
 #container {
@@ -107,8 +112,10 @@ main {
   z-index: 10;
 }
 .big {
+  color: white;
+  display: flex;
   transform: scale();
-  transition: 1.5s ease;
+  transition: color 0s ease, transform 1.5s ease;
   font-size: 4em;
   position: absolute;
   top: 0;
@@ -122,6 +129,7 @@ main {
   height: 100vh;
   box-sizing: border-box;
   z-index: 20;
+  justify-content: center;
 }
 .disabled {
   font-size: 0;
@@ -148,7 +156,7 @@ main {
 }
 .amount {
   display: inline-flex;
-  font-size: 5em;
+  font-size: 11vh;
   font-weight: 100;
   width: 100%;
   align-items: center;
@@ -162,7 +170,7 @@ main {
 }
 
 .currency {
-  font-size: 0.8em;
+  font-size: 9vh;
 }
 #buzzers {
   display: flex;
@@ -196,4 +204,6 @@ main {
   flex-grow: auto;
   background-color: black;
   z-index: 49;
+}
+button {
 }

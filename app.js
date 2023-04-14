@@ -5,13 +5,24 @@ const categories = ["1.json", "2.json", "3.json", "4.json", "5.json", "6.json"];
 const amounts = ["200", "400", "600", "800", "1000"];
 const currency = "$";
 
+// Buttons mapping
+const qTimer = document.getElementById("qTimer");
+const aTimer = document.getElementById("aTimer");
+const buzzer1 = document.getElementById("bz1");
+const buzzer2 = document.getElementById("bz2");
+const buzzer3 = document.getElementById("bz3");
+const check1 = document.getElementById("myCheck1");
+const check2 = document.getElementById("myCheck2");
+const check3 = document.getElementById("myCheck3");
+const mainButton = document.getElementById("b1");
+
 // Function to add a category
 async function addCat(catFile) {
   const response = await fetch(`/categories/${catFile}`);
   const category = await response.json();
   const questions = category.questions.map((q, i) => {
     const id = `q${q}`;
-    return `<div class="qna" data-state="0"><p class="amount"><span class="currency">${currency}</span>${amounts[i]}</p><p class="question">${q.question}</p><p class="answer">${q.answer}</p></div>`;
+    return `<div class="qna" data-state="0" date-column="${i}"><p class="amount"><span class="currency">${currency}</span>${amounts[i]}</p><p class="question">${q.question}</p><p class="answer">${q.answer}</p></div>`;
   });
   const oneCat = `<div class="category">${questions.join("")}</div>`;
   const oneTitle = `<div class="title">${category.name}</dive>`;
@@ -26,8 +37,25 @@ async function loadBoard() {
   }
 }
 
+// Function to resize the titles after they're loaded
+async function sizeCats() {
+  var cats = document.querySelectorAll(".title");
+  var maxFontSize = 6;
+  var minFontSize = 3.5;
+  var maxTextLength = 50;
+
+  cats.forEach(function (title) {
+    var length = title.innerText.length;
+    var fontSize =
+      maxFontSize - (length / maxTextLength) * (maxFontSize - minFontSize);
+    title.style.fontSize = fontSize + "vh";
+  });
+}
+
 // Load the board when the page is loaded
-loadBoard();
+loadBoard().then(sizeCats);
+
+// Keyboard mappings
 document.addEventListener("keydown", function (event) {
   if (event.code === "Space") {
     mainButton.click();
@@ -71,9 +99,49 @@ window.addEventListener("DOMContentLoaded", function () {
     }
   });
 
+  const checks = [check1, check2, check3];
+
+  const buzzers = [buzzer1, buzzer2, buzzer3];
+
+  // Enable and disable buzzers
+  let buzzLocked = true;
+  if ((buzzLocked = true)) {
+    buzzers.forEach((buzzer) => {
+      buzzer.classList.add("disabled");
+    });
+  } else {
+    buzzers.forEach((buzzer) => {
+      buzzer.classList.remove("disabled");
+    });
+  }
+  buzzers.forEach(function (buzzer, index) {
+    buzzer.addEventListener("click", function () {
+      if (!bz1 && !bz2 && !bz3) {
+        return;
+      }
+      checks[index].checked = true;
+      console.log("Buzzer index:", index);
+      bz1 = bz2 = bz3 = false;
+      this.classList.add("disabled");
+      let timeLeft = 10;
+      const timerInterval = setInterval(function () {
+        timeLeft--;
+        aTimer.innerHTML = timeLeft;
+        if (timeLeft == 0) {
+          clearInterval(timerInterval);
+          bz1 = bz2 = bz3 = true;
+          buzzers.forEach(function (buzzer, index) {
+            buzzer.classList.remove("disabled");
+            checks[index].checked = false;
+          });
+        }
+      }, 1000);
+    });
+  });
+
   mainButton.addEventListener("click", function () {
     if (currentQna && currentQna.getAttribute("data-state") == 1) {
-      let timeLeft = 10;
+      let timeLeft = 20;
       qTimer.innerHTML = timeLeft;
       const timerInterval = setInterval(function () {
         timeLeft--;
@@ -83,27 +151,22 @@ window.addEventListener("DOMContentLoaded", function () {
           currentQna.setAttribute("data-state", "2");
           const answer = currentQna.querySelector(".answer");
           currentQna.children[1].innerHTML = answer.innerHTML;
+        } else if (timeLeft > 0) {
+          array.forEach((element) => {});
+          {
+          }
+        } else {
+          clearInterval(timerInterval);
+          currentQna.setAttribute("data-state", "2");
+          const answer = currentQna.querySelector(".answer");
+          currentQna.children[1].innerHTML = answer.innerHTML;
         }
       }, 1000);
     } else if (currentQna && currentQna.getAttribute("data-state") == 2) {
-      const answer = currentQna.querySelector(".answer");
-      currentQna.children[1].innerHTML = answer.innerHTML;
-      currentQna.setAttribute("data-state", "3");
-    } else if (currentQna && currentQna.getAttribute("data-state") == 3) {
-      const answer = currentQna.querySelector(".answer");
-      currentQna.children[1].innerHTML = answer.innerHTML;
-      currentQna.setAttribute("data-state", "4");
-    } else if (currentQna && currentQna.getAttribute("data-state") == 4) {
       // Disable the question when it's clicked a third time
       currentQna.classList.remove("big");
       currentQna.classList.add("disabled");
-      currentQna.setAttribute("data-state", "5");
+      currentQna.setAttribute("data-state", "3");
     }
   });
 });
-
-const mainButton = document.getElementById("b1");
-const qTimer = document.getElementById("qTimer");
-const buzzer1 = document.getElementById("bz1");
-const buzzer2 = document.getElementById("bz2");
-const buzzer3 = document.getElementById("bz3");
