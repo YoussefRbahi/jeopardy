@@ -41,7 +41,7 @@ async function loadBoard() {
 async function sizeCats() {
   var cats = document.querySelectorAll(".title");
   var maxFontSize = 6;
-  var minFontSize = 3.5;
+  var minFontSize = 3;
   var maxTextLength = 50;
 
   cats.forEach(function (title) {
