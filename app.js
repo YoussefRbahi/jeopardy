@@ -40,7 +40,7 @@ async function loadBoard() {
 // Function to resize the titles after they're loaded
 async function sizeCats() {
   var cats = document.querySelectorAll(".title");
-  var maxFontSize = 6;
+  var maxFontSize = 5;
   var minFontSize = 3;
   var maxTextLength = 50;
 
