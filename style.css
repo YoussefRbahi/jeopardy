@@ -33,11 +33,11 @@ main {
   gap: 1rem;
   margin: 0;
   padding: 0;
-  transition: transform 0.5s ease;
+  /* transition: transform 0.5s ease; */
 }
-main:hover {
+/* main:hover {
   transform: scale(1.01);
-}
+} */
 
 #titles {
   display: flex;
@@ -116,8 +116,7 @@ main:hover {
 .big {
   color: white;
   display: flex;
-  transform: scale();
-  transition: color 0s ease, transform 1.5s ease;
+  transition: 1.5s ease, color 0s;
   font-size: 4em;
   position: absolute;
   top: 0;
@@ -133,6 +132,7 @@ main:hover {
   z-index: 20;
   justify-content: center;
 }
+
 .disabled {
   font-size: 0;
   pointer-events: none;

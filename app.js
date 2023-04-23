@@ -141,7 +141,7 @@ window.addEventListener("DOMContentLoaded", function () {
 
   mainButton.addEventListener("click", function () {
     if (currentQna && currentQna.getAttribute("data-state") == 1) {
-      let timeLeft = 20;
+      let timeLeft = 5;
       qTimer.innerHTML = timeLeft;
       const timerInterval = setInterval(function () {
         timeLeft--;
