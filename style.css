@@ -33,11 +33,11 @@ main {
   gap: 1rem;
   margin: 0;
   padding: 0;
-  /* transition: transform 0.5s ease; */
+  transition: transform 0.5s ease;
 }
-/* main:hover {
-  transform: scale(1.01);
-} */
+main:hover {
+  transform: scale(1);
+}
 
 #titles {
   display: flex;

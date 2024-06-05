@@ -1,0 +1,2 @@
+Separate the buzzers and timers from the questions.
+Change the way the questions and answers cycle to states that are cycled between with a forward and backward buttons.
